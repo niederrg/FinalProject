@@ -23,16 +23,16 @@ public class PhysicsDemo extends Application {
         root.setOnKeyPressed(e -> {
             switch (e.getCode()) {
                 case DOWN:
-                    sim.moveInner(0, 3);
+                    sim.moveInner(0, 5);
                     break;
                 case UP:
-                    sim.moveInner(0, -3);
+                    sim.moveInner(0, -5);
                     break;
                 case LEFT:
-                    sim.moveInner(-3, 0);
+                    sim.moveInner(-5, 0);
                     break;
                 case RIGHT:
-                    sim.moveInner(3, 0);
+                    sim.moveInner(5, 0);
                     break;
             }
         });

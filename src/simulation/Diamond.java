@@ -15,13 +15,13 @@ public class Diamond
 {
     private ArrayList<LineSegment> walls;
     private Polygon diamond;
-    public double x;
-    public double y;
-    public double r;
+    public int x;
+    public int y;
+    public int r;
     Point top, bottom, left, right;
     
     
-    public Diamond(double x, double y, double r) {
+    public Diamond(int x, int y, int r) {
         this.x = x;
         this.y = y;
         this.r = r;
@@ -40,7 +40,7 @@ public class Diamond
         walls.add(new LineSegment(left, top));
     }
     
-    public void setX(Double newX) {
+    public void setX(int newX) {
         double deltaX = newX - this.x;
         this.top.x += deltaX;
         this.right.x += deltaX;
@@ -49,7 +49,7 @@ public class Diamond
         this.x = newX;
     }
     
-    public void setY(Double newY) {
+    public void setY(int newY) {
         double deltaY = newY - this.y;
         this.top.y += deltaY;
         this.right.y += deltaY;
