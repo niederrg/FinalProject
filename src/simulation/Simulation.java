@@ -10,14 +10,14 @@ import physics.*;
 public class Simulation {
     private Box outer;
     private Ball ball;
-    private Box inner;
+    private Diamond inner;
     private Lock lock;
     
     public Simulation(int width,int height,int dX,int dY)
     {
         outer = new Box(0,0,width,height,false);
         ball = new Ball(width/2,height/2,dX,dY);
-        inner = new Box(width - 60,height - 40, 40, 20,true);
+        inner = new Diamond(40, 20, width - 60);
         lock = new ReentrantLock();
     }
     
@@ -44,13 +44,13 @@ public class Simulation {
         int dY = deltaY;
         if(inner.x + deltaX < 0)
           dX = -inner.x;
-        if(inner.x + inner.width + deltaX > outer.width)
-          dX = outer.width - inner.width - inner.x;
+        if(inner.x + (inner.r*2) + deltaX > outer.width)
+          dX = outer.width - (inner.r*2) - inner.x;
        
         if(inner.y + deltaY < 0)
            dY = -inner.y;
-        if(inner.y + inner.height + deltaY > outer.height)
-           dY = outer.height - inner.height - inner.y;
+        if(inner.y + (inner.r*2) + deltaY > outer.height)
+           dY = outer.height - (inner.r*2) - inner.y;
         
         inner.move(dX,dY);
         if(inner.contains(ball.getRay().origin)) {
