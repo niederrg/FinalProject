@@ -105,6 +105,10 @@ public class Diamond
     
     public void updateShape()
     {
-        
+        walls.clear();
+        walls.add(new LineSegment(top, right));
+        walls.add(new LineSegment(right, bottom));
+        walls.add(new LineSegment(bottom, left));
+        walls.add(new LineSegment(left, top));
     }
 }
