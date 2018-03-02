@@ -17,7 +17,7 @@ public class Simulation {
     {
         outer = new Box(0,0,width,height,false);
         ball = new Ball(width/2,height/2,dX,dY);
-        inner = new Diamond(40, 20, width - 60);
+        inner = new Diamond(20, 20, 20);
         lock = new ReentrantLock();
     }
     
