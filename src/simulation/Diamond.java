@@ -30,7 +30,7 @@ public class Diamond
         left = new Point(x, y+r);
         bottom = new Point(x+r, y+(2*r));
         
-        
+
         
         walls = new ArrayList<LineSegment>();
 
@@ -39,6 +39,8 @@ public class Diamond
         walls.add(new LineSegment(bottom, left));
         walls.add(new LineSegment(left, top));
     }
+    
+    
     
     public void setX(int newX) {
         double deltaX = newX - this.x;
@@ -97,7 +99,7 @@ public class Diamond
     
     public Shape getShape()
     {
-        diamond = new Polygon(top.x, top.y, right.x, right.y, left.x, left.y, bottom.x, bottom.y);
+        diamond = new Polygon(top.x, top.y, right.x, right.y, bottom.x, bottom.y, left.x, left.y);
         diamond.setFill(Color.WHITE);
         diamond.setStroke(Color.BLACK);
         return diamond;
@@ -110,5 +112,6 @@ public class Diamond
         walls.add(new LineSegment(right, bottom));
         walls.add(new LineSegment(bottom, left));
         walls.add(new LineSegment(left, top));
+        diamond = new Polygon(top.x, top.y, right.x, right.y, bottom.x, bottom.y, left.x, left.y);
     }
 }
