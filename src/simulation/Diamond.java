@@ -34,10 +34,10 @@ public class Diamond
         
         walls = new ArrayList<LineSegment>();
 
-        walls.add(new LineSegment(top, right));
-        walls.add(new LineSegment(right, bottom));
-        walls.add(new LineSegment(bottom, left));
-        walls.add(new LineSegment(left, top));
+        walls.add(new LineSegment(top, left));
+        walls.add(new LineSegment(left, bottom));
+        walls.add(new LineSegment(bottom, right));
+        walls.add(new LineSegment(right, top));
     }
     
     
@@ -107,11 +107,17 @@ public class Diamond
     
     public void updateShape()
     {
-        walls.clear();
-        walls.add(new LineSegment(top, right));
-        walls.add(new LineSegment(right, bottom));
-        walls.add(new LineSegment(bottom, left));
-        walls.add(new LineSegment(left, top));
-        diamond = new Polygon(top.x, top.y, right.x, right.y, bottom.x, bottom.y, left.x, left.y);
+        this.top = walls.get(0).a;
+        this.left = walls.get(1).a;
+        this.bottom = walls.get(2).a;
+        this.right = walls.get(3).a;
+        
+        diamond.getPoints().clear();
+        
+        diamond.getPoints().addAll(
+                top.x, top.y,
+                right.x, right.y,
+                bottom.x, bottom.y,
+                left.x, left.y);
     }
 }
