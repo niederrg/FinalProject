@@ -50,7 +50,7 @@ public class Simulation {
         if(inner.y + deltaY < 0)
            dY = -inner.y;
         if(inner.y + (inner.r*2) + deltaY > outer.height)
-           dY = outer.height - (inner.r*2) - inner.y;
+           dY = (outer.height - (inner.r*2)) - inner.y;
         
         inner.move(dX,dY);
         if(inner.contains(ball.getRay().origin)) {
